@@ -1,6 +1,6 @@
-const User = require("./models/User");
+const User = require("../models/User");
 
-async function verifyTokenAdmin(req, res, next) {
+exports.verifyTokenAdmin = async (req, res, next) => {
   var token = req.headers["authorization"];
   var username = req.headers["username"];
   if (token) {
@@ -31,8 +31,8 @@ async function verifyTokenAdmin(req, res, next) {
       result: "fail",
       message: "you are not authorized to access the data",
     });
-}
-async function verifyToken(req, res, next) {
+};
+exports.verifyToken = async (req, res, next) => {
   var token = req.headers["authorization"];
   var role = req.headers["role"];
   var username = req.headers["username"];
@@ -47,7 +47,6 @@ async function verifyToken(req, res, next) {
             message: "you are not authorized to perform this action",
           });
         } else {
-          // let user=User.findOne({username:username})
           next();
         }
       });
@@ -61,9 +60,4 @@ async function verifyToken(req, res, next) {
       result: "fail",
       message: "you are not authorized to access the data",
     });
-}
-
-module.exports = {
-  verifyTokenAdmin,
-  verifyToken,
 };

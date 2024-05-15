@@ -37,6 +37,7 @@ const storage = multer.diskStorage({
   },
 });
 const upload = multer({ storage: storage });
+
 var schema = new passwordValidator();
 schema
   .is()
