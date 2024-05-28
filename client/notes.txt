@@ -1,0 +1,9 @@
+
+28may 2024
+
+http://localhost:3000
+https://api-rightofashion.onrender.com
+
+
+"proxy": "http://localhost:3000"
+"proxy": "https://api-rightofashion.onrender.com"
