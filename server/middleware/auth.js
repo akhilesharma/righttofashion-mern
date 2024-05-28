@@ -1,5 +1,8 @@
 const User = require("../models/User");
-
+const jsonwebtoken = require("jsonwebtoken");
+const dotenv = require("dotenv");
+dotenv.config();
+const JSONSALTKEY = process.env.JSONSALTKEY;
 exports.verifyTokenAdmin = async (req, res, next) => {
   var token = req.headers["authorization"];
   var username = req.headers["username"];
@@ -36,9 +39,9 @@ exports.verifyToken = async (req, res, next) => {
   var token = req.headers["authorization"];
   var role = req.headers["role"];
   var username = req.headers["username"];
-
   if (token) {
     let user = await User.findOne({ username: username });
+    // console.log("user :", user);
     if (user && user.tokens.findIndex((item) => item === token) !== -1) {
       jsonwebtoken.verify(token, JSONSALTKEY, (error, data) => {
         if (error) {

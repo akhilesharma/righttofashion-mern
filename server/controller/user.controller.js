@@ -2,7 +2,7 @@ const User = require("../models/User");
 const bcrypt = require("bcrypt");
 const { transporter } = require("../middleware/nodeMailer");
 const { schema } = require("../middleware/passValidation");
-
+const fs = require("fs");
 exports.postUser = async (req, res) => {
   try {
     if (schema.validate(req.body.password)) {
@@ -94,6 +94,7 @@ exports.putUser = async (req, res) => {
       data.pin = req.body.pin ? req.body.pin : data.pin;
       data.city = req.body.city ? req.body.city : data.city;
       data.state = req.body.state ? req.body.state : data.state;
+
       if (req.file) {
         try {
           fs.unlinkSync(`./public/images/${data.pic}`);
@@ -107,6 +108,7 @@ exports.putUser = async (req, res) => {
     res.status(500).send({ result: "Fail", message: "Internal Server Error" });
   }
 };
+
 exports.deleteUser = async (req, res) => {
   try {
     const data = await User.findOne({ _id: req.params._id });

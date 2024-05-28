@@ -1,4 +1,4 @@
-const Subcategory = require("../models/subcategory");
+const Subcategory = require("../models/Subcategory");
 
 //api for subcategory
 

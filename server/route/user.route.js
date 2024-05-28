@@ -10,10 +10,10 @@ const {
 
 const { verifyTokenAdmin, verifyToken } = require("../middleware/auth");
 
-route.post("/User", verifyTokenAdmin, postUser);
-route.get("/User", getUser);
-route.get("/User/:_id", verifyToken, getUserById);
-route.put("/User/:_id", verifyToken, upload.single("pic"), putUser);
-route.delete("/User/:_id", verifyToken, deleteUser);
+route.post("/user", postUser);
+route.get("/user", verifyTokenAdmin, getUser);
+route.get("/user/:_id", verifyToken, getUserById);
+route.put("/user/:_id", verifyToken, upload.single("pic"), putUser);
+route.delete("/user/:_id", verifyToken, deleteUser);
 
 module.exports = route;

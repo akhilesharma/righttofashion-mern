@@ -1,8 +1,12 @@
+
+# nodemailer
+
 MAILSENDER=
 PASSWORD=
 MAILHOST=
 PORT=
 
-#jwt
+
+# json web token
 
 JSONSALTKEY=
