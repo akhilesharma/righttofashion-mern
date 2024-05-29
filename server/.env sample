@@ -6,7 +6,11 @@ PASSWORD=
 MAILHOST=
 PORT=
 
-
-# json web token
+#  jwt
 
 JSONSALTKEY=
+
+# mongodb database
+
+DB_URI=
+DB_NAME=
