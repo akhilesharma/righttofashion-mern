@@ -6,7 +6,7 @@ const {
   getBrandById,
   putBrand,
   deleteBrand,
-} = require("../controller/Brand.controller");
+} = require("../controller/brand.controller");
 
 const { verifyTokenAdmin } = require("../middleware/auth");
 
